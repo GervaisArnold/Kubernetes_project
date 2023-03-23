@@ -2,6 +2,12 @@ FROM centos:latest
 
 LABEL maintainer="gaghtdm@gmail.com"
 
+FROM centos:8
+
+# Disable the appstream repository temporarily
+RUN dnf config-manager --disable appstream
+
+# Install httpd, zip, and unzip packages
 RUN yum install -y httpd \
  zip\
  unzip
