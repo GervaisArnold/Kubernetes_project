@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 FROM centos:latest
 
 LABEL maintainer="gaghtdm@gmail.com"
@@ -26,3 +27,17 @@ EXPOSE 80 22
 #  RUN rm -rf shine shine.zip
 #  CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 #  EXPOSE 80
+=======
+FROM centos
+
+LABEL maintainer="gaghtdm@gmail.com"
+
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
+RUN yum -y install java
+
+CMD /bin/bash
+EXPOSE 80 22
+>>>>>>> 6fdef3df85d2ca258bfedb9fdd6c6f2dfb0e274e
