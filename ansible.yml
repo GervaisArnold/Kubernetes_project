@@ -1,5 +1,5 @@
 - hosts: all 
-  become:
+  become: true
   tasks:
      - name: create now deployement
        command: kubectl apply -f /home/ubuntu/Deployent.yml
